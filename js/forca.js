@@ -18,7 +18,19 @@ function carregaListaAutomatica() {
         { nome: "RECURSOS", categoria: "Alocação: Elementos necessários para execução de processos." },
         { nome: "SEMAFOROS", categoria: "Sincronização: Mecanismo usado para evitar condições de corrida." },
         { nome: "BUFFER", categoria: "Sincronização: Área temporária de armazenamento de dados." },
-        { nome: "VIRTUALIZACAO", categoria: "Memória: Técnica que simula recursos físicos para maior eficiência." }
+        { nome: "VIRTUALIZACAO", categoria: "Memória: Técnica que simula recursos físicos para maior eficiência." },
+        { nome: "ARQUIVOS", categoria: "Memória: Conjunto de dados armazenados em um dispositivo." },
+        { nome: "THREADS", categoria: "Execução: Processos leves que compartilham recursos de um processo." },
+        { nome: "PAGINACAO", categoria: "Memória: Técnica de gerenciamento de memória que divide a memória em páginas." },
+        { nome: "SWAPPING", categoria: "Memória: Técnica de transferência de páginas entre memória principal e secundária." },
+        { nome: "PARTICIONAMENTO", categoria: "Memória: Divisão da memória em áreas de alocação de processos." },
+        { nome: "ALGORITMOS", categoria: "Escalonamento: Conjunto de regras para alocação de recursos." },
+        { nome: "FIFO", categoria: "Escalonamento: Algoritmo de escalonamento do tipo First In First Out." },
+        { nome: "ROUND-ROBIN", categoria: "Escalonamento: Algoritmo de escalonamento do tipo circular." },
+        { nome: "PRIORIDADE", categoria: "Escalonamento: Algoritmo de escalonamento baseado em níveis de prioridade." },
+        { nome: "PREEMPTIVO", categoria: "Escalonamento: Algoritmo de escalonamento que permite interrupções." },
+        { nome: "NAO-PREEMPTIVO", categoria: "Escalonamento: Algoritmo de escalonamento que não permite interrupções." },
+        { nome: "QUANTUM", categoria: "Escalonamento: Intervalo de tempo em que um processo é executado." }
     ];
 }
 
