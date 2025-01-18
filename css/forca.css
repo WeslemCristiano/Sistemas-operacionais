@@ -24,6 +24,19 @@ body {
     flex-direction: column;
 }
 
+#timer {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: 'Ubuntu', sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 #imagem{
     background-image: url("../img/forca.png");
     width: 234px;

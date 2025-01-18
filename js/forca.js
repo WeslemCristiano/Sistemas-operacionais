@@ -5,6 +5,10 @@ let palavraSecretaCategoria;
 let palavraSecretaSorteada;
 let palavras = [];
 let jogoAutomatico = true;
+//1 minutos
+let timeLeft = 60;
+let timerInterval;
+
 
 // Lista de palavras relacionadas a Sistemas Operacionais
 function carregaListaAutomatica() {
@@ -33,6 +37,8 @@ function carregaListaAutomatica() {
         { nome: "QUANTUM", categoria: "Escalonamento: Intervalo de tempo em que um processo é executado." }
     ];
 }
+
+
 
 carregaListaAutomatica();
 
@@ -83,6 +89,43 @@ function verificaLetraEscolhida(letra) {
     }
 }
 
+function startTimer() {
+    const timerDisplay = document.getElementById('timer');
+    timerInterval = setInterval(() => {
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            gameOver("Tempo esgotado! Você perdeu.");
+            // esprerar 5 segundos e recarregar a página
+            setTimeout(() => {
+                location.reload();
+            }, 5000);
+        } else {
+            timeLeft--;
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerDisplay.textContent = `Tempo restante: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+        }
+    }, 1000);
+}
+
+function gameOver(message) {
+    document.getElementById('modalBody').textContent = message;
+    $('#myModal').modal('show');
+    document.querySelectorAll('.teclas button').forEach(button => {
+        button.disabled = true;
+    });
+}
+
+document.getElementById('btnReiniciar').addEventListener('click', () => {
+    clearInterval(timerInterval);
+    timeLeft = 300;
+    startTimer();
+
+});
+
+
+startTimer();
+
 function mudarStyleLetra(tecla, condicao) {
     if (condicao == false) {
         document.getElementById(tecla).style.background = "#C71585";
@@ -100,8 +143,10 @@ function comparalistas(letra) {
         carregaImagemForca();
 
         if (tentativas == 0) {
-            abreModal("OPS!", "Não foi dessa vez ... A palavra secreta era <br>" + palavraSecretaSorteada);
-            piscarBotaoJogarNovamente(true);
+            abreModal("OPS!", "Não foi dessa vez, você precisa estudar mais sistemas operacionais!!! <br> <br> A palavra secreta era: " + palavraSecretaSorteada);
+            setTimeout(() => {
+                location.reload();
+            }, 5000);
         }
     } else {
         mudarStyleLetra("tecla-" + letra, true);
@@ -122,7 +167,9 @@ function comparalistas(letra) {
     if (vitoria == true) {
         abreModal("PARABÉNS!", "Você venceu...");
         tentativas = 0;
-        piscarBotaoJogarNovamente(true);
+        setTimeout(() => {
+            location.reload();
+        }, 5000);
     }
 }
 
