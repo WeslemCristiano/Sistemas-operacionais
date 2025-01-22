@@ -1,9 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap');
-*{
+* {
     padding: 0;
     margin: 0;
-    color: #2c2c2c;
+    color: #f3f3f3; /* Cor padrão */
     box-sizing: border-box;
+}
+
+/* Estilo para o modal */
+.modal-content {
+    color: #000; /* Torna o texto do modal preto */
+    background-color: #fff; /* Fundo branco para contraste */
+}
+
+.modal-header {
+    color: #000; /* Cor do cabeçalho do modal */
+}
+
+.modal-body {
+    color: #000; /* Cor do corpo do modal */
+    font-size: 1.1em; /* Tamanho da fonte ajustável */
+}
+
+.modal-footer .btn {
+    color: #fff; /* Cor do texto no botão */
+    background-color: #007bff; /* Cor do botão */
+    border: none; /* Remove borda */
+    padding: 10px 20px; /* Ajusta o tamanho */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+.modal-footer .btn:hover {
+    background-color: #0056b3; /* Cor ao passar o mouse */
 }
 
 body {
@@ -16,6 +43,30 @@ body {
     justify-content: center;
 }
 
+/* Estilo do cabeçalho */
+.title {
+    color: #fff; /* Texto do cabeçalho em branco */
+    font-size: 2.5em;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para destaque */
+}
+
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2em;
+    }
+    #imagem {
+        font-size: 1em;
+        padding: 10px 15px;
+    }
+}
+
+
 .container{
     display: flex;
     justify-content: center;
@@ -23,6 +74,39 @@ body {
     flex-wrap: wrap;
     flex-direction: column;
 }
+
+#scoreboard {
+    position: absolute; /* Posiciona no topo */
+    top: 10px; /* Distância do topo */
+    left: 15%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta para alinhar ao centro */
+    background: linear-gradient(135deg, #007bff, #0056b3); /* Gradiente de azul */
+    color: #fff; /* Texto branco */
+    padding: 10px 20px; /* Espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    font-size: 1.2em; /* Texto maior */
+    font-family: 'Ubuntu', sans-serif; /* Fonte moderna */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
+    text-align: center; /* Centraliza o conteúdo */
+    border: 2px solid rgba(255, 255, 255, 0.4); /* Bordas finas e translúcidas */
+}
+
+#scoreboard span {
+    margin: 0 10px; /* Espaçamento horizontal entre os elementos */
+    color: #fff; /* Mantém o texto branco */
+    font-weight: bold; /* Destaca o texto */
+}
+
+#scoreboard span:first-child {
+    border-right: 2px solid rgba(255, 255, 255, 0.4); /* Linha separadora */
+    padding-right: 10px; /* Espaçamento após a linha */
+}
+
+#scoreboard:hover {
+    background: linear-gradient(135deg, #0056b3, #007bff); /* Gradiente invertido no hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Sombra mais forte no hover */
+}
+
 
 #timer {
     position: fixed;

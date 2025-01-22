@@ -1,5 +1,7 @@
 let jogarNovamente = true;
 let tentativas = 6;
+let acertos = 0;
+let derrotas = 0;
 let listaDinamica = [];
 let palavraSecretaCategoria;
 let palavraSecretaSorteada;
@@ -94,11 +96,12 @@ function startTimer() {
     timerInterval = setInterval(() => {
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
-            gameOver("Tempo esgotado! Você perdeu.");
+            gameOver("🚀 Tempo esgotado! Você perdeu.");
             // esprerar 5 segundos e recarregar a página
             setTimeout(() => {
                 location.reload();
             }, 5000);
+            registrarDerrota();
         } else {
             timeLeft--;
             const minutes = Math.floor(timeLeft / 60);
@@ -126,6 +129,46 @@ document.getElementById('btnReiniciar').addEventListener('click', () => {
 
 startTimer();
 
+// Função para atualizar o placar
+function atualizarPlacar() {
+    document.getElementById("score-acertos").textContent = `Acertos: ${acertos}`;
+    document.getElementById("score-derrotas").textContent = `Derrotas: ${derrotas}`;
+
+    // salvar o placar no localStorage
+    localStorage.setItem("acertos", acertos);
+    localStorage.setItem("derrotas", derrotas);
+
+}
+
+// Função para carregar o placar do localStorage
+function carregarPlacar() {
+     
+    acertos = localStorage.getItem("acertos") || 0;
+    derrotas = localStorage.getItem("derrotas") || 0;
+
+   
+    atualizarPlacar();
+}
+
+// Função para resetar o placar
+function resetarPlacar() {
+    acertos = 0;
+    derrotas = 0;
+    atualizarPlacar();
+}
+    
+
+function registrarAcerto() {
+    acertos++;
+    atualizarPlacar();
+}
+
+function registrarDerrota() {
+    derrotas++;
+    atualizarPlacar();
+}
+
+
 function mudarStyleLetra(tecla, condicao) {
     if (condicao == false) {
         document.getElementById(tecla).style.background = "#C71585";
@@ -143,10 +186,13 @@ function comparalistas(letra) {
         carregaImagemForca();
 
         if (tentativas == 0) {
-            abreModal("OPS!", "Não foi dessa vez, você precisa estudar mais sistemas operacionais!!! <br> <br> A palavra secreta era: " + palavraSecretaSorteada);
+            abreModal("💀", "Não foi dessa vez, você precisa estudar mais sistemas operacionais!!! <br> <br> A palavra secreta era: " + palavraSecretaSorteada);
             setTimeout(() => {
                 location.reload();
             }, 5000);
+
+            // quando o jogador perde, registrar a derrota
+            registrarDerrota();
         }
     } else {
         mudarStyleLetra("tecla-" + letra, true);
@@ -165,11 +211,14 @@ function comparalistas(letra) {
     }
 
     if (vitoria == true) {
-        abreModal("PARABÉNS!", "Você venceu...");
+        abreModal("🫡 PARABÉNS!", "Você venceu...");
         tentativas = 0;
         setTimeout(() => {
             location.reload();
         }, 5000);
+
+        // quando o jogador vence, registrar o acerto
+        registrarAcerto();
     }
 }
 
@@ -218,5 +267,12 @@ function abreModal(titulo, mensagem) {
 let bntReiniciar = document.querySelector("#btnReiniciar");
 bntReiniciar.addEventListener("click", function () {
     jogarNovamente = false;
+    resetarPlacar();
     location.reload();
 });
+
+// Exibir placar ao carregar a página
+
+carregarPlacar();
+
+

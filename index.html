@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/forca.css" media="screen">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Jogo de S.O</title>
+    <!--Colocar icon na tela do navegador imagem png -->
+    <link rel="icon" href="img/forca.png" type="image/png" sizes="16x16">
+  >  <title>Jogo de S.O</title>
 </head>
 <body>
     <div class="container">
@@ -20,7 +22,13 @@
         <div id="timer" class="alert alert-warning text-center">
             Tempo restante: 1:00
         </div>
-
+        
+        <!-- Placar -->
+        <div id="scoreboard" class="alert alert-info text-center">
+            <span id="score-acertos">Acertos: 0</span>
+            <span id="score-derrotas">Derrotas: 0</span>
+        </div>
+        
         <div id="teclado">
             <div class="teclas">
                 <button id="tecla-A" onclick="verificaLetraEscolhida('A')">A</button>
@@ -53,7 +61,7 @@
                 <button id="tecla-X" onclick="verificaLetraEscolhida('X')">X</button>
                 <button id="tecla-Y" onclick="verificaLetraEscolhida('Y')">Y</button>
                 <button id="tecla-Z" onclick="verificaLetraEscolhida('Z')">Z</button>
-                <button id="btnReiniciar">🎮</button>
+                <button id="btnReiniciar">🕹️</button>
             </div>
         </div>
 
