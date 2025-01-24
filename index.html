@@ -9,12 +9,16 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!--Colocar icon na tela do navegador imagem png -->
     <link rel="icon" href="img/forca.png" type="image/png" sizes="16x16">
-  >  <title>Jogo de S.O</title>
+    <title>Jogo de S.O</title>
 </head>
 <body>
     <div class="container">
         <h1 class="title">Forca dos Processos</h1>
         <div id="imagem"></div>
+
+        <div id="categoria">
+            Dica: <span>Processos em sistemas operacionais</span>
+        </div>
 
         <div id="palavra-secreta"></div>
 
@@ -29,6 +33,7 @@
             <span id="score-derrotas">Derrotas: 0</span>
         </div>
         
+       
         <div id="teclado">
             <div class="teclas">
                 <button id="tecla-A" onclick="verificaLetraEscolhida('A')">A</button>
@@ -65,7 +70,7 @@
             </div>
         </div>
 
-        <div id="categoria"></div>
+  
 
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

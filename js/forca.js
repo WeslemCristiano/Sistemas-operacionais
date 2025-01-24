@@ -96,11 +96,12 @@ function startTimer() {
     timerInterval = setInterval(() => {
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
-            gameOver("🚀 Tempo esgotado! Você perdeu.");
+            document.getElementById("imagem").style.background = "url('./img/forca06.png')";
             // esprerar 5 segundos e recarregar a página
             setTimeout(() => {
                 location.reload();
             }, 5000);
+            gameOver("🚀 Tempo esgotado! Você perdeu.");
             registrarDerrota();
         } else {
             timeLeft--;
