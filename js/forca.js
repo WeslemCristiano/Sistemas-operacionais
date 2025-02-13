@@ -32,10 +32,10 @@ function carregaListaAutomatica() {
         { nome: "PARTICIONAMENTO", categoria: "Memória: Divisão da memória em áreas de alocação de processos." },
         { nome: "ALGORITMOS", categoria: "Escalonamento: Conjunto de regras para alocação de recursos." },
         { nome: "FIFO", categoria: "Escalonamento: Algoritmo de escalonamento do tipo First In First Out." },
-        { nome: "ROUND-ROBIN", categoria: "Escalonamento: Algoritmo de escalonamento do tipo circular." },
+        { nome: "ROUND ROBIN", categoria: "Escalonamento: Algoritmo de escalonamento do tipo circular." },
         { nome: "PRIORIDADE", categoria: "Escalonamento: Algoritmo de escalonamento baseado em níveis de prioridade." },
         { nome: "PREEMPTIVO", categoria: "Escalonamento: Algoritmo de escalonamento que permite interrupções." },
-        { nome: "NAO-PREEMPTIVO", categoria: "Escalonamento: Algoritmo de escalonamento que não permite interrupções." },
+        { nome: "NAO PREEMPTIVO", categoria: "Escalonamento: Algoritmo de escalonamento que não permite interrupções." },
         { nome: "QUANTUM", categoria: "Escalonamento: Intervalo de tempo em que um processo é executado." }
     ];
 }
